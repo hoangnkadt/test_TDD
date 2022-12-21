@@ -1,4 +1,4 @@
-import sys,psycopg2
+import psycopg2
 
 conn = psycopg2.connect(host='localhost', database='TDD-test',user='postgres', password='123')
 cur = conn.cursor()
