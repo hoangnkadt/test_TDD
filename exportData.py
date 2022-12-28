@@ -4,7 +4,7 @@ conn = psycopg2.connect(host='localhost', database='TDD-test',user='postgres', p
 cur = conn.cursor()
 
 query = """ 
-          select * from "PermutatedLeadStatusHistory"
+          select * from "PermutatedLeadStatusHistory" limit 100
         
         """
 
