@@ -1,8 +1,10 @@
 import sys
 sys.path.append("./src")
+sys.path.append("./configs")
 from importDataPostgres import importData
 from exportData import exportData
-def run():
+
+def get_query():
   nameLink = 'permutatedStatus'
   nameTable = 'TDD-FACT-permutatedStatus.csv'
   nameTableDatabase = 'PermutatedLeadStatusHistory'
@@ -17,7 +19,4 @@ def run():
             LIMIT 15) as tb1
           ON "PermutatedLeadStatusHistory".lead_id = tb1.lead_id
           """
-  exportData(query,nameTable,nameLink)
-  importData(nameLink,nameTable,nameTableDatabase)
-if __name__ == '__main__':
-  run()
+  return query, nameLink, nameTable, nameTableDatabase

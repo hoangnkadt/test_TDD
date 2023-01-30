@@ -1,4 +1,5 @@
 from peewee import *
+from configs.config import *
 
 # Connect to a Postgres database.
 pg_db = PostgresqlDatabase('TDD-test', user='postgres', password='123',host='localhost', port=5432)
@@ -18,6 +19,10 @@ class PermutatedLeadStatusHistory(Model):
   class Meta:
     database = pg_db
     table_name = 'PermutatedLeadStatusHistory'
+
+
+def get_mySQL_db():
+  return pg_db
 
 pg_db.connect()
 pg_db.create_tables([PermutatedLeadStatusHistory])
