@@ -6,5 +6,5 @@ def exportData(config,query,nameTable,nameLink):
   cur = conn.cursor()
   outputquery = "COPY ({0}) TO STDOUT WITH CSV HEADER".format(query)
   file_path = os.path.join(os.getcwd(), 'input', nameLink , nameTable)
-  with open(file_path, "w") as f:
+  with open(file_path, "w",  encoding="utf-8") as f:
       cur.copy_expert(outputquery, f)

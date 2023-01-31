@@ -1,5 +1,6 @@
 from src.importDataPostgres import importData
-from input.permutatedStatus.main import get_query
+# from input.permutatedStatus.main import get_query
+from input.lead.main import get_query
 from src.exportData import exportData
 from configs.config import get_config_export,get_config_import
 def run():
