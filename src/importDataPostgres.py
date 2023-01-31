@@ -2,9 +2,11 @@ import os
 import pandas as pd
 from sqlalchemy import create_engine
 
-def importData(nameLink,tableInput,tableOutput):
+
+def importData(config,nameLink,tableInput,tableOutput):
+  link = f"postgresql://{config['mySQL']['user']}:{config['mySQL']['password']}@{config['mySQL']['host']}/{config['mySQL']['db_name']}"
   # link to connect to database
-  engine = create_engine('postgresql://postgres:123@localhost/TDD-test')
+  engine = create_engine(link)
 
   # Update file path to the correct location
   file_path = os.path.join(os.getcwd(), 'input',nameLink,tableInput)
