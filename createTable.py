@@ -3,24 +3,24 @@ from input.permutatedStatus.main import get_permutatedStatus_data
 from input.lead.main import get_lead_data
 from src.exportData import exportData
 from configs.config import get_config_export,get_config_import
-def run_tables(tables):
-  config_export = get_config_export()
-  config_import = get_config_import()
 
-  query_functions = {
-    "permutatedStatus": get_permutatedStatus_data,
-    "lead": get_lead_data,
-  }
-
-  for table in tables:
+def run_table(table, config_export, config_import):
+    query_functions = {
+        "permutatedStatus": get_permutatedStatus_data,
+        "lead": get_lead_data,
+    }
+  
     query_function = query_functions.get(table)
-    if query_function:
-      query, nameLink, nameTable, nameTableDatabase = query_function()
-      exportData(config_export, query, nameTable, nameLink)
-      importData(config_import, nameLink, nameTable, nameTableDatabase)
-    else:
-      # Handle other tables here
-      continue
+    query, nameLink, nameTable, nameTableDatabase = query_function()
+    exportData(config_export, query, nameTable, nameLink)
+    importData(config_import, nameLink, nameTable, nameTableDatabase)
+
+def run_tables(tables):
+    config_export = get_config_export()
+    config_import = get_config_import()
+
+    for table in tables:
+        run_table(table, config_export, config_import)
 
 if __name__ == '__main__':
-  run_tables(["permutatedStatus", "lead"])
+    run_tables(["permutatedStatus", "lead"])
