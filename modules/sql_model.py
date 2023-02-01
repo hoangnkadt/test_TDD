@@ -1,7 +1,11 @@
 from peewee import *
-
+from configs import config
 # Connect to a Postgres database.
-pg_db = PostgresqlDatabase('TDD-test', user='postgres', password='123',host='localhost', port=5432)
+
+
+
+db_config = config.get_config_import()
+pg_db = PostgresqlDatabase(host=db_config['mySQL']['host'], database=db_config['mySQL']['db_name'],user=db_config['mySQL']['user'], password=db_config['mySQL']['password'],port = db_config['mySQL']['port'])
 
 class PermutatedLeadStatusHistory(Model):
   id = CharField(primary_key=True, index=True)
@@ -39,9 +43,6 @@ class lead(Model):
     database = pg_db
     table_name = 'lead'
 
-
-def get_mySQL_db():
-  return pg_db
 
 pg_db.connect()
 pg_db.create_tables([lead])
