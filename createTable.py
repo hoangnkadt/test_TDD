@@ -1,3 +1,4 @@
+from modules.sql_model import *
 from src.importDataPostgres import importData
 from input.permutatedStatus.main import get_permutatedStatus_data
 from input.lead.main import get_lead_data
