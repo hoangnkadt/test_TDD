@@ -4,7 +4,7 @@ sys.path.append("./configs")
 from importDataPostgres import importData
 from exportData import exportData
 
-def get_query():
+def get_permutatedStatus_data():
   nameLink = 'permutatedStatus'
   nameTable = 'TDD-FACT-permutatedStatus.csv'
   nameTableDatabase = 'PermutatedLeadStatusHistory'
