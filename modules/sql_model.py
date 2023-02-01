@@ -1,9 +1,7 @@
 from peewee import *
 from configs import config
+
 # Connect to a Postgres database.
-
-
-
 db_config = config.get_config_import()
 pg_db = PostgresqlDatabase(host=db_config['mySQL']['host'], database=db_config['mySQL']['db_name'],user=db_config['mySQL']['user'], password=db_config['mySQL']['password'],port = db_config['mySQL']['port'])
 
