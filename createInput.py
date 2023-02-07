@@ -1,5 +1,5 @@
-from input.permutatedStatus.main import get_permutatedStatus_export_data
-from input.lead.main import get_lead_export_data
+from tools.permutatedStatus.main import get_permutatedStatus_export_data
+from tools.lead.main import get_lead_export_data
 from src.exportData import exportData
 from configs.config import get_config_export
 import os

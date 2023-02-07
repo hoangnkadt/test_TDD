@@ -1,7 +1,7 @@
 from modules.sql_model import *
 from src.importDataPostgres import importData
-from input.permutatedStatus.main import get_permutatedStatus_import_data
-from input.lead.main import get_lead_import_data
+from tools.permutatedStatus.main import get_permutatedStatus_import_data
+from tools.lead.main import get_lead_import_data
 from configs.config import get_config_import
 import os
 
